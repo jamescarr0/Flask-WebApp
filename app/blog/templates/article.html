@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="article">
+
+    <section class="color-section">
+        <div class="container">
+            <div>
+                <h1 class="big-heading">{{ post.title }}</h1>
+                <h2 class="sub-heading">Rating: {% include '_rating.html' %}</h2>
+                <hr class="hr-navy">
+                <div class="line-spacing-small">
+                    <p class="color-lg">Written by: {{ post.author.full_name() }} </p>
+                    <p class="color-lg">{{ post.get_date_created() }}</p>
+                    <br>
+                    <p class="word-count font-weight-bold"></p>
+
+                    <div class="fb-like" data-href="#" data-width=""
+                        data-layout="button" data-action="like" data-size="large" data-share="true">like_button_here
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--------------------- Hero --------------------->
+    {% if hero %}
+    <section>
+        <div class="hero-article shadow" style="background-image: url( {{ hero.img_url }} )"
+            aria-label="{{ hero.img_alt }}">
+        </div>
+    </section>
+    {% endif %}
+
+    <section>
+        <div class="container">
+            <div class="clearfix">
+                <h3 class="heading navy">&#128221; Description</h3>
+                <p>{{ post.description|safe }}</p>
+            </div>
+        </div>
+    </section>
+
+</section>
+{% endblock content %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/est-reading-time.min.js') }}"></script>
+{% endblock scripts %}

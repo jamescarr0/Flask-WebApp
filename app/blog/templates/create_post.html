@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="mt-20 color-section">
+        <div class="container">
+            <h1>Hi, {{ current_user.first_name.title() }}</h1>
+            <h2>Feeling creative?</h2>
+
+            <hr>
+
+            <form autocomplete="off" action="" method="POST" enctype="multipart/form-data">
+
+                {{ form.hidden_tag() }}
+
+                <div>
+                    {{ form.title.label }} <br>
+                    {{ form.title(class_="form-control create-post") }}<br>
+                </div>
+                <hr>
+                <div>
+                    {{ form.rating.label }} <br>
+                    {{ form.rating(class_="form-control") }}<br>
+                </div>
+                <hr>
+                <div>
+                    {{ form.description.label }} <br>
+                    {{ form.description(class_="form-control create-post") }}
+                </div>
+                <hr>
+                <p>Day of visit</p>
+                <div>
+                    {{ form.day.label }} <br>
+                    {{ form.day(class_="form-control") }}
+                    {{ form.month.label }}<br>
+                    {{ form.month(class_="form-control") }}
+                    {{ form.year.label }}
+                    {{ form.year(class_="form-control") }}
+                </div>
+                <hr>
+                <div>
+                    <div>
+                        {{ form.img_file.label }}<br>
+                        {{ form.img_file(class_="form-control") }}<br>
+                    </div>
+                    <div>
+                        {{ form.img_alt.label }}<br>
+                        {{ form.img_alt(class_="form-control") }}<br>
+                    </div>
+                </div>
+
+                <hr>
+                <div>{{ form.submit() }}</div>
+
+            </form>
+        </div>
+    </section>
+{% endblock content %}
+{% block scripts %}
+    <!-- tinyMCE editor -->
+    <script src="https://cdn.tiny.cloud/1/jzu57niocq8zjp4at7kl2gho68bt55bycbu7oe772ikykypq/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <!-- tinyMCE init -->
+    <script src="{{ url_for('static', filename='js/tinyMceInit.min.js') }}"></script>
+{% endblock scripts %}

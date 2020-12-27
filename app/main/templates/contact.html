@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="color-section">
+    <div class="container">
+        <h1 class="big-heading">Contact Page</h1>
+        <hr class="hr-navy">
+        <p>Contact sub heading️
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+
+            <div class="form-row mb-4">
+                <div class="col">
+                    <p class='mb-0 heading navy'>{{ form.first_name.label }}</p>
+                    {{ form.first_name(class_="form-control") }}
+                    {% for error in form.first_name.errors %}
+                    <strong class="form-error">Error</strong>{% endfor %}
+                </div>
+                <div class="col">
+                    <p class='mb-0 heading navy'>{{ form.last_name.label }}</p>
+                    {{ form.last_name(class_="form-control")}}
+                    {% for error in form.last_name.errors %}
+                    <strong class="form-error">Error: {{ error }}</strong>{% endfor %}
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <p class='mb-0 heading navy'>{{ form.email.label }}</p>{{ form.email(class_="form-control") }}
+                {% for error in form.email.errors %}
+                <strong class="form-error">Error {{ error }}</strong>{% endfor %}
+            </div>
+
+            <div class="mb-4">
+                <p class='mb-0 heading navy'>{{ form.number.label }}</p>{{ form.number(class_="form-control") }}
+                {% for error in form.number.errors %}
+                <strong class="form-error">Error {{ error }}</strong>{% endfor %}
+            </div>
+
+            <div class="mb-4">
+                <p class='mb-4 heading navy'>{{ form.message.label }}</p>
+                {{ form.message(class_="form-control", rows=10) }}
+                {% for error in form.message.errors %}
+                <strong class="form-error">Error</strong>{% endfor %}
+            </div>
+
+            {{ form.submit(class_="btn btn-solid-pink shadow") }}
+        </form>
+    </div>
+    <div class="container">
+        <hr class="hr-navy mt-0">
+        <p class="heading navy">Email: <a class="" href="mailto:hello@example.com?subject=Flask Project Website Enquiry">hello@example.com</a></p>
+        <p class="heading navy">Facebook: <a class="" href="https://facebook.com/">Facebook Page</a></p>
+        <p class="heading navy">Messenger: <a class="" href="https://m.me/">Facebook messenger</a></p>
+        <p class="heading navy">Instagram: <a class="" href="https://www.instagram.com/">@InstaPage</a></p>
+    </div>
+</section>
+
+
+{% endblock content %}

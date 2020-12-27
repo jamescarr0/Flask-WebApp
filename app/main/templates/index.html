@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include '_home_banner.html' %}
+
+    <!------------------ Blog Posts Template ------------------>
+    <section class="white-section">
+        <div class="container">
+
+            <div class="d-flex align-items-center">
+                <h2 class="heading navy mb-0">Latest posts</h2>
+
+                <div class="ml-auto">
+                    <p>Social buttons</p>
+                </div>
+            </div>
+
+            <br>
+            <div class="card-deck">
+
+                {% for post in posts %}
+                    <div class="col-lg-6 col-md-6 mb-5 p-0">
+                        <div class="card h-100 shadow">
+                            <div class="card-header color-section">
+                                <h3 class="mb-0 mt-navy heading">{{ post.title }}</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    {{ post.snippet()|safe }}
+                                </p>
+                                <a href="{{ url_for('blog.post_detail', slug=post.slug) }}">continue reading.</a>
+                            </div>
+                            <div class="card-footer color-section">
+
+                                <div class="d-flex align-items-center">
+                                    <div class="mb-0 mr-auto date">{{ post.get_date_created() }}</div>
+                                    <div class="mb-0">{% for _ in range(0, post.rating) %}&#11088; {% endfor %}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a href="{{ url_for('blog.view_all') }}">
+                <button class="btn btn-solid-yellow btn-lg shadow" type="button">View all
+                    posts
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!------------------ About ------------------>
+    <section id="about" class="color-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <h2 class="heading mt-navy">Heading</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis. Tempor id eu nisl nunc mi ipsum
+                    faucibus. Fermentum posuere urna nec tincidunt. Sed risus pretium quam vulputate dignissim
+                    suspendisse. Eros donec ac odio tempor orci dapibus. Egestas dui id ornare arcu odio ut sem nulla.
+                    Pretium aenean pharetra magna ac placerat vestibulum lectus mauris. Urna et pharetra pharetra massa
+                    massa. Ullamcorper eget nulla facilisi etiam dignissim. At augue eget arcu dictum varius.
+                    Pellentesque elit eget gravida cum sociis natoque. Vitae auctor eu augue ut lectus arcu bibendum.
+                    Amet luctus venenatis lectus magna fringilla urna. Senectus et netus et malesuada fames ac turpis
+                    egestas maecenas. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Netus et
+                    malesuada fames ac turpis egestas maecenas pharetra. Pellentesque eu tincidunt tortor aliquam nulla
+                    facilisi cras. Justo eget magna fermentum iaculis. At erat pellentesque adipiscing commodo.
+                    <br><br>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Venenatis a condimentum
+                    vitae sapien pellentesque. Sed augue lacus viverra vitae congue eu consequat ac felis. Id donec
+                    ultrices tincidunt arcu non sodales. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Cum
+                    sociis natoque penatibus et magnis dis parturient. Penatibus et magnis dis parturient montes
+                    nascetur ridiculus mus mauris. Ipsum suspendisse ultrices gravida dictum. Purus gravida quis blandit
+                    turpis cursus in hac. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Aliquam
+                    purus sit amet luctus venenatis lectus magna. Massa tincidunt nunc pulvinar sapien et ligula
+                    ullamcorper malesuada proin. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Dolor sed
+                    viverra ipsum nunc aliquet.
+                </div>
+
+                <div class="col-lg-6 text-center align-self-center">
+                    <img src="{{ url_for('static', filename='img/Flask_logo.png') }}"
+                         alt="Flask Project" class="section-img">
+
+                    <p class="mt-3">Flask Project: Registration, Login and blog features.></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="white-section">
+        <div class="container">
+            <h2 class="heading navy">Heading</h2>
+            <p> Nullam vehicula ipsum a arcu cursus vitae. Consectetur purus ut faucibus pulvinar elementum integer
+                enim neque volutpat. Pellentesque nec nam aliquam sem et. Sed viverra tellus in hac habitasse platea
+                dictumst vestibulum. Maecenas pharetra convallis posuere morbi. Mattis enim ut tellus elementum
+                sagittis vitae et leo duis. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Leo
+                a diam sollicitudin tempor id eu. Mollis nunc sed id semper risus. Viverra justo nec ultrices dui
+                sapien eget. Integer eget aliquet nibh praesent tristique magna sit amet purus. Orci dapibus
+                ultrices in iaculis nunc sed augue lacus viverra. Interdum posuere lorem ipsum dolor sit amet
+                consectetur. Feugiat sed lectus vestibulum mattis ullamcorper. Quisque non tellus orci ac auctor
+                augue mauris. Viverra nibh cras pulvinar mattis nunc sed. Diam donec adipiscing tristique risus nec
+                feugiat. Imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor. Nunc aliquet bibendum
+                enim facilisis gravida neque convallis a.
+            </p>
+            <a href="https://www.facebook.com/">
+                <i class="fa fa-facebook fa-3x mr-5" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/">
+                <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+            </a>
+        </div>
+    </section>
+
+    <!------------------ Call to action ------------------>
+    <section id="collab-cta" class="color-section">
+        <div class="container">
+            <div>
+                <h1 class="big-heading">Big Heading!</h1>
+                <p>I love python and micro frameworks rock!</p>
+                <a href="#">
+                    <button class="btn btn-solid-yellow shadow"
+                            type="button">Random Button
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

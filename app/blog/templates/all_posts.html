@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="color-section section-shadow">
+    <div class="container">
+        <div>
+            <h1 class="big-heading">Blog</h1>
+            <hr class="hr-navy">
+            <p>Take a look at all the entries we have posted so far.</p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    {% for post in posts %}
+    <h2 class="heading mb-0 navy">{{ post.title }}</h2>
+    <p>{% include '_rating.html' %}</p>
+    <p>{{ post.snippet() }}
+        <a href="{{ url_for('blog.post_detail', slug=post.slug) }}">Continue reading</a></p>
+    <hr class="hr-navy">
+    {% endfor %}
+
+    {% if page_count > 1 and page_num <= page_count %}
+    <nav class="mt-5">
+        <ul class="pagination justify-content-center">
+            <li class="page-item {% if not prev_url %}disabled{% endif %}">
+                <a class="page-link" href="{{ prev_url }}">Newer posts</a></li>
+            <li class="page-item {% if not next_url %}disabled{% endif %}">
+                <a class="page-link" href="{{ next_url }}" tabindex="{% if not next_url %}-1{% endif %}">Older posts</a>
+            </li>
+        </ul>
+        <p class="text-center">Page: {{page_num}} of {{page_count}}</p>
+    </nav>
+    {% endif %}
+    {% if page_num > page_count %}
+    <p>Invalid page request</p>
+    <a href="{{ url_for('blog.view_all')}}">Go back</a>
+    {% endif %}
+</div>
+{% endblock content %}

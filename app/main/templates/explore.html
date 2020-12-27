@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+<h1>Find Friends or explore new content</h1>
+<p> Todo! </p>
+<hr>
+<h2>Example showing: Posts by all users</h2>
+
+
+        {% for post in posts %}
+        <p>{{ post.snippet() }}</p>
+        {% endfor %}
+
+        {% if prev_url %}
+        <a href="{{ prev_url }}">Newer posts</a>
+        {% endif %}
+        {% if next_url %}
+        <a href="{{ next_url }}">Older posts</a>
+        {% endif %}
+</div>
+
+    {% endblock content %}

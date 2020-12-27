@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="color-section">
+    <div class="container text-right">
+        {% if user == current_user %}
+        <h1 class="heading mt-navy">Hi, {{ user.first_name.title() }}</h1>
+        {% else %}
+        <h1 class="heading mt-navy">{{ user.full_name() }}</h1>
+        {% endif %}
+
+        {% if user.about_me %}
+        <p>
+            {{ user.about_me }}
+            {% endif %}
+        </p>
+        <p>
+            {% if user.last_seen %}
+            last seen on: {{ user.get_last_seen() }}
+        </p>
+        {% endif %}
+
+        <hr>
+        <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
+        <p>
+            {% if user == current_user %}
+            <a href="{{ url_for('main.edit_profile') }}">Edit your profile</a></p>
+
+        <hr>
+
+        {% elif not current_user.is_following(user) %}
+        <p>
+        <form action="{{ url_for('follow', username=user.username) }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Follow') }}
+        </form>
+        </p>
+        {% else %}
+        <p>
+        <form action="{{ url_for('unfollow', username=user.username) }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Unfollow') }}
+        </form>
+        </p>
+        {% endif %}
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        {% for post in posts %}
+
+        <div class="card mb-3 shadow">
+            <h5 class="card-header color-section">{{ post.title|safe }}</h5>
+            <div class="card-body">
+                <p><strong>Viewed:</strong> {{ post.view_count }}</p>
+                <p class="card-title"><strong>Date created:</strong> {{ post.get_date_created()|safe }}</p>
+                <p class="card-text">{{ post.snippet()|safe }}</p>
+
+                <div style="display: flex;">
+                    <!-- Edit Post -->
+                    <form action="{{ url_for('blog.edit_post', slug=post.slug) }}" method="GET">
+                        <button class="btn btn-primary m-1">Edit post</button>
+                    </form>
+
+                    <!-- Delete Post - triggers confirmation modal -->
+                    <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#confirmDeleteModal"
+                        data-post-id="{{ post.id }}" data-post-title="{{ post.title }}"
+                        data-post-created="{{ post.get_date_created() }}">Delete post</button>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        {% include '_confirm_delete_modal.html' %}
+
+        <!-- Pagination begin -->
+        {% include '_paginate.html'%}
+        <!-- Pagination end -->
+
+    </div>
+</section>
+{% endblock content %}
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/deletePostModal.min.js') }}"></script>
+{% endblock scripts %}

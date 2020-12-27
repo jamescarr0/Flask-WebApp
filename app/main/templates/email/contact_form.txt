@@ -1,0 +1,11 @@
+Website Form Enquiry.
+
+    From: {{ first_name.title() }} {{ last_name.title() }}
+
+    Email: {{ email }}
+
+    Contact Number: {{ number }}
+
+
+Message:
+{{ message }}

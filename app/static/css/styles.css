@@ -1,0 +1,291 @@
+@font-face {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arial');
+    font-display: swap;
+}
+
+/********************* Tags *********************/
+body {
+    font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+/********************* ID's *********************/
+#navigation div.container {
+    padding: 10px 0 !important;
+}
+
+/* Override the tinyMCE inline styling */
+#article img[style] {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 300px !important;
+    border-radius: 10px !important;
+}
+
+@media (max-width: 828px) {
+    #article img[style] {
+        display: block !important;
+        float: none !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+    }
+}
+
+/* Confirm post entry delete modal */
+#modal-delete-post-title {
+    font-weight: bold;
+}
+
+/********************* Classes *********************/
+/* General */
+.container {
+    padding: 40px 20px;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.line-spacing-small {
+    line-height: 0.5;
+}
+
+.date {
+    font-size: 0.75rem;
+}
+
+/* navigation classes */
+.navbar-dark .navbar-brand {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    color: #F2D13E;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #F2D13E
+}
+
+.navbar .container {
+    padding: 0 !important;
+}
+
+.navbar {
+    background-color: navy;
+}
+
+.nav-link {
+    font-weight: 700;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: #F2D13E;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(242, 209, 62, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* Card / Blog snippet styling */
+.card, .card-header, .card-footer {
+    border: none;
+}
+
+.section-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 991px) {
+    .section-img {
+        width: 100%;
+        margin: 30px 0;
+    }
+}
+
+.heading {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.big-heading {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.5;
+    color: #fff
+}
+
+.sub-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* Site Theme Colours */
+
+/* Links */
+a:hover {
+    color: #F2D13E;
+}
+
+a .fa {
+    color: navy;
+}
+
+a.page-link:hover {
+    background-color: #F2D13E;
+    color: white;
+}
+
+/* Section colors */
+.color-section, .page-item.active .page-link {
+    background-color: navy;
+    color: white;
+}
+
+.white-section {
+    background-color: white;
+    color: black;
+}
+
+/* General colours */
+.btn-solid-yellow {
+    background-color: #F2D13E;
+    color: black;
+}
+
+.mt-navy {
+    color: #F2D13E;
+}
+
+.hr-navy {
+    border-top: 1px dashed navy;
+}
+
+.btn-solid-navy {
+    background-color: navy;
+    color: white;
+}
+
+.navy {
+    color: navy;
+}
+
+.hr-navy {
+    border-top: 1px dashed navy;
+}
+
+.color-lg {
+    color: lightgray;
+}
+
+.form-error {
+    color: red;
+}
+
+.shadow {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.error {
+    background-color: #F977BC;
+    color: white;
+}
+
+/********************* AUTH/Sign_in/Register *********************/
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/********************* HERO *********************/
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 35rem;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.hero-article {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 35rem;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.hero-title-text {
+    position: relative;
+}
+
+.clearfix::after,
+div::after {
+    content: '';
+    display: block;
+    clear: both;
+}

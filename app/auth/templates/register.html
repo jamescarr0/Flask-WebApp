@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="color-section text-dark">
+    <div class="container center-screen">
+
+        <form class="form-signin" action="" method="POST">
+            <h1 class="heading navy">Register</h1>
+            <hr class="hr-navy">
+            {{ form.hidden_tag() }}
+
+            {{ form.pin.label }}
+            {{ form.pin(class_="form-control")}}<br>
+            {% for error in form.pin.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.first_name.label }}
+            {{ form.first_name(size=32, class_="form-control")}}<br>
+            {% for error in form.first_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.surname.label }}
+            {{ form.surname(size=32, class_="form-control")}}<br>
+            {% for error in form.surname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+
+            {{ form.username.label }}
+            {{ form.username(size=32, class_="form-control")}}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.email.label }}
+            {{ form.email(size=32, class_="form-control") }}
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br><hr class="hr-navy">
+
+            {{ form.password.label }}
+            {{ form.password(size=32, class_="form-control") }}
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.password2.label }}
+            {{ form.password2(size=32, class_="form-control") }}
+            {% for error in form.password2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <p>{{ form.submit(class_="btn btn-lg btn-solid-navy shadow m-3") }}</p>
+        </form>
+    </div>
+</section>
+{% endblock content %}
