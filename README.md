@@ -1,4 +1,4 @@
-# Flask-App
+# Flask-WebApp
 Web app written in Python using the Flask framework.
 
 ## Features
