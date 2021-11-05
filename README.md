@@ -12,4 +12,27 @@ Dashboard for post management (edit & delete).
 TinyMCE editor.  
 Clean and sanitise users HTML input.  
 Compress and validate user image uploads.  
-SEO Slugs.  
+SEO Slugs.
+
+## Installation
+Download repo and create virtual environment.
+
+python -m venv venv
+source venv/bin/activate
+export FLASK_APP=blog.py
+
+Init database and create migrations.
+
+flask db init
+flask db migrate
+<TODO: edit migrations>
+flask db upgrade
+flask run
+
+## Screenshots
+
+### Homepage
+### Registration/Login
+### Dashboard
+### Blog editor
+
