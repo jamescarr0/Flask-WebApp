@@ -25,7 +25,9 @@ Init database and create migrations.
 
 flask db init
 flask db migrate
-<TODO: edit migrations>
+
+TODO: Edit migration script
+
 flask db upgrade
 flask run
 
