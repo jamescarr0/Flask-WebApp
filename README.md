@@ -34,7 +34,16 @@ flask run
 ## Screenshots
 
 ### Homepage
+<img src="screenshots/index.jpg">
+
 ### Registration/Login
+<img src="screenshots/login.jpg">
+<img src="screenshots/registration-alert.jpg">
+
 ### Dashboard
+<img src="screenshots/dashboard-post.jpg">
+
 ### Blog editor
+<img src="screenshots/create-post.jpg">
+<img src="screenshots/live-alert.jpg">
 
