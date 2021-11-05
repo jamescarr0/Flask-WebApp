@@ -38,12 +38,12 @@ flask run
 
 ### Registration/Login
 <img src="screenshots/login.jpg">
-<img src="screenshots/registration-alert.jpg">
+<img src="screenshots/registration-alert.png">
 
 ### Dashboard
 <img src="screenshots/dashboard-post.jpg">
 
 ### Blog editor
 <img src="screenshots/create-post.jpg">
-<img src="screenshots/live-alert.jpg">
+<img src="screenshots/live-alert.png">
 
