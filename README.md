@@ -2,7 +2,7 @@
 Web app written in Python using the Flask framework.
 
 ## Features
-Mobile friendly.
+Mobile friendly<br>
 SQL Database.  
 Configuration file reads from .env for easy setup and management.  
 Logging and log rotation.  
